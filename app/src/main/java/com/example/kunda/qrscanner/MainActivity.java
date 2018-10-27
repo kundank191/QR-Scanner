@@ -1,6 +1,8 @@
 package com.example.kunda.qrscanner;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -95,9 +97,15 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 //Scanned successfully
                 Toast.makeText(this,result.getContents(),Toast.LENGTH_SHORT).show();
+                //Extract uri from the result
+                String uriData = result.getContents();
+                //Start activity with the uri
+                Intent resultIntent = new Intent("Action",Uri.parse(uriData));
+                setResult(Activity.RESULT_OK,resultIntent);
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
+
 }
