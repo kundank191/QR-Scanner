@@ -1,6 +1,5 @@
 package com.example.kunda.qrscanner;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -100,8 +99,8 @@ public class MainActivity extends AppCompatActivity {
                 //Extract uri from the result
                 String uriData = result.getContents();
                 //Start activity with the uri
-                Intent resultIntent = new Intent("Action",Uri.parse(uriData));
-                setResult(Activity.RESULT_OK,resultIntent);
+                Intent resultIntent = new Intent(Intent.ACTION_VIEW,Uri.parse(uriData));
+                startActivity(resultIntent);
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
