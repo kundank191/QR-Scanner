@@ -98,9 +98,13 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this,result.getContents(),Toast.LENGTH_SHORT).show();
                 //Extract uri from the result
                 String uriData = result.getContents();
-                //Start activity with the uri
-                Intent resultIntent = new Intent(Intent.ACTION_VIEW,Uri.parse(uriData));
-                startActivity(resultIntent);
+                try {
+                    Uri uri = Uri.parse(uriData);
+                    Intent resultIntent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(resultIntent);
+                } catch (Exception e) {
+                    Toast.makeText(this,"Error reading qr , error : " + uriData,Toast.LENGTH_SHORT).show();
+                }
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
