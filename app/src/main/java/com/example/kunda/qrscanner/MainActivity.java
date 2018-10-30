@@ -69,10 +69,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     *
      * @param cameraID the camera to be used
      * @param scanType the type of scan to be performed
-     * @param title title of the camera screen
+     * @param title    title of the camera screen
      */
     private void startScan(int cameraID, Collection<String> scanType, String title) {
 
@@ -92,10 +91,10 @@ public class MainActivity extends AppCompatActivity {
         if (result != null) {
             if (result.getContents() == null) {
                 //cancel
-                Toast.makeText(this,R.string.scan_cancelled,Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.scan_cancelled, Toast.LENGTH_SHORT).show();
             } else {
                 //Scanned successfully
-                Toast.makeText(this,result.getContents(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, result.getContents(), Toast.LENGTH_SHORT).show();
                 //Extract uri from the result
                 String uriData = result.getContents();
                 try {
@@ -103,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent resultIntent = new Intent(Intent.ACTION_VIEW, uri);
                     startActivity(resultIntent);
                 } catch (Exception e) {
-                    Toast.makeText(this,"Error reading qr , error : " + uriData,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Error reading qr , error : " + uriData, Toast.LENGTH_SHORT).show();
                 }
             }
         } else {

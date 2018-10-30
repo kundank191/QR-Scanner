@@ -5,4 +5,6 @@
     <string name="all">All</string>
     <string name="qr_scanner">QR scanner</string>
     <string name="bar_code_scanner">Bar Code scanner</string>
+
+    <string name="scan_cancelled">Scan cancelled</string>
 </resources>
